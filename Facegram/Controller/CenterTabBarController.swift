@@ -12,6 +12,9 @@ class CenterTabBarController: UITabBarController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    tabBar.tintColor = UIColor.whiteColor()
+    tabBar.barTintColor = UIColor(white: 0.25, alpha: 1)
+    tabBar.translucent = false
     
     for (index, viewController) in self.viewControllers!.enumerate() {
       viewController.title = nil
