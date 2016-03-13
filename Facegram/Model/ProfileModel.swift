@@ -12,11 +12,11 @@ class Profile {
   let username:String
   var followers:Array<String>
   var following:Array<String>
-  var posts:Array<Post>
+  var posts: Array<String> //Array<Post>
   var picture:UIImage?
   static var currentUser:Profile?
   
-  init(username:String, followers:Array<String>, following:Array<String>, posts:Array<Post>, picture: UIImage?) {
+  init(username:String, followers:Array<String>, following:Array<String>, posts:Array<String>, picture: UIImage?) {
     self.username = username
     self.followers = followers
     self.following = following
@@ -24,7 +24,35 @@ class Profile {
     self.picture = picture
   }
   
+  static func initWithUsername(username: String, profileDict: [String : AnyObject]) -> Profile? {
+    let profile = Profile.createUser(username)
+
+    if let followers = profileDict["followers"] as? [String] {
+      profile.followers = followers
+    } else {
+      profile.followers = [String]()
+    }
+    
+    if let following = profileDict["following"] as? [String] {
+      profile.following = following
+    } else {
+      profile.following = [String]()
+    }
+    
+    if let posts = profileDict["posts"] as? [String] {
+      profile.posts = posts
+    } else {
+      profile.posts = [String]()
+    }
+    
+    return profile
+  }
+  
   static func createUser(username:String!) -> Profile {
-    return Profile(username: username, followers: Array<String>(), following: [String](), posts: [Post](), picture: nil)
+    return Profile(username: username, followers: Array<String>(), following: [String](), posts: [String](), picture: nil)
+  }
+  
+  func dictValue() -> Dictionary<String, AnyObject> {
+    return ["username" : username, "followers" : followers, "following": following, "posts": posts]
   }
 }

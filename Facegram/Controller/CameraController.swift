@@ -26,14 +26,21 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     } else if picker.sourceType == .PhotoLibrary {
       sourceLabel.text = "LIBRARY"
     }
+    
     picker.dismissViewControllerAnimated(true, completion: nil)
   }
   
   func captionController(controller: CaptionController, didFinishWithCaption caption: String) {
     controller.dismissViewControllerAnimated(true, completion: nil)
-    let newPost = Post.init(creator: Profile.currentUser!.username, image: selectedImage, caption: caption)
-    Post.feed!.append(newPost)
-    Profile.currentUser!.posts.append(newPost)
+    guard let postImage = selectedImage else {
+      print("No image selected!")
+      return
+    }
+    let newPost = Post.init(id:nil, creator: Profile.currentUser!.username, image: postImage, caption: caption)
+    let uniquePostRef = postRef.childByAutoId() // Creates unique time-sensitive post id
+    uniquePostRef.setValue(newPost.dictValue())
+    //Post.feed!.append(newPost)
+    //Profile.currentUser!.posts.append(newPost)
     
     let tabBarController = self.presentingViewController as? UITabBarController
     tabBarController!.selectedIndex = 0 // Goes back to feed tab!

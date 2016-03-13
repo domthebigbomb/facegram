@@ -7,18 +7,22 @@
 //
 
 import UIKit
+import Firebase
+
+let firebase = Firebase(url: "https://instagramdemo.firebaseIO.com")
+let usernameRef = firebase.childByAppendingPath("usernames")
+let profileRef = firebase.childByAppendingPath("profiles")
+let postRef = firebase.childByAppendingPath("posts")
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
   var window: UIWindow?
 
-
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    
     let testUser = Profile.createUser("Mark")
-    Profile.currentUser = testUser
+    //Profile.currentUser = testUser
     Post.feed = [Post]()
-    Post.feed?.append(Post.init(creator: "Steve", image: nil, caption: "This is a test post!"))
     return true
   }
 

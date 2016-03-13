@@ -1,0 +1,6 @@
+framework module Pods_Facegram {
+  umbrella header "Pods-Facegram-umbrella.h"
+
+  export *
+  module * { export * }
+}

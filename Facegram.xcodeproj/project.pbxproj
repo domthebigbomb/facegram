@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841A35695DD960100C36AABD /* Pods_Facegram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DDC0937E319C60E9367A78 /* Pods_Facegram.framework */; };
+		B601D5D31C780B62001E9E7E /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = B601D5D21C780B62001E9E7E /* Secrets.plist */; };
+		B601D5D51C780F47001E9E7E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D5D41C780F47001E9E7E /* LoginController.swift */; };
+		B601D5D71C78197B001E9E7E /* TranslucentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D5D61C78197B001E9E7E /* TranslucentTextField.swift */; };
+		B601D5D91C78225B001E9E7E /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D5D81C78225B001E9E7E /* RegisterController.swift */; };
 		B61A750D1C4583EB004B2877 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A750C1C4583EB004B2877 /* ProfileController.swift */; };
 		B61A75171C45A6C2004B2877 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A75161C45A6C2004B2877 /* PostModel.swift */; };
 		B61A75191C45A7C2004B2877 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A75181C45A7C2004B2877 /* ProfileModel.swift */; };
 		B66C58E61C49E60400020CF9 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C58E51C49E60400020CF9 /* PostCell.swift */; };
 		B6750C441C34384A0023E7C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750C431C34384A0023E7C0 /* AppDelegate.swift */; };
-		B6750C461C34384A0023E7C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750C451C34384A0023E7C0 /* ViewController.swift */; };
 		B6750C491C34384A0023E7C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6750C471C34384A0023E7C0 /* Main.storyboard */; };
 		B6750C4B1C34384A0023E7C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6750C4A1C34384A0023E7C0 /* Assets.xcassets */; };
 		B6750C4E1C34384A0023E7C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6750C4C1C34384A0023E7C0 /* LaunchScreen.storyboard */; };
@@ -23,13 +27,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD87277FA4C6424EA0F2C070 /* Pods-Facegram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Facegram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Facegram/Pods-Facegram.release.xcconfig"; sourceTree = "<group>"; };
+		B601D5D21C780B62001E9E7E /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		B601D5D41C780F47001E9E7E /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		B601D5D61C78197B001E9E7E /* TranslucentTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentTextField.swift; sourceTree = "<group>"; };
+		B601D5D81C78225B001E9E7E /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		B61A750C1C4583EB004B2877 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		B61A75161C45A6C2004B2877 /* PostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		B61A75181C45A7C2004B2877 /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		B66C58E51C49E60400020CF9 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		B6750C401C34384A0023E7C0 /* Facegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Facegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6750C431C34384A0023E7C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6750C451C34384A0023E7C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6750C481C34384A0023E7C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6750C4A1C34384A0023E7C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6750C4D1C34384A0023E7C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +46,8 @@
 		B6E4D27A1C48D15B00C03880 /* CenterTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterTabBarController.swift; sourceTree = "<group>"; };
 		B6E4D27C1C48DD3B00C03880 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		B6E4D27E1C495DE600C03880 /* CaptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionController.swift; sourceTree = "<group>"; };
+		B8DDC0937E319C60E9367A78 /* Pods_Facegram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Facegram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF696A95B681EFAA01580E4B /* Pods-Facegram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Facegram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Facegram/Pods-Facegram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +55,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841A35695DD960100C36AABD /* Pods_Facegram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EFC6A273FBDFACD30670EF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8DDC0937E319C60E9367A78 /* Pods_Facegram.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32FF9640E863537E7BE22A4B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF696A95B681EFAA01580E4B /* Pods-Facegram.debug.xcconfig */,
+				AD87277FA4C6424EA0F2C070 /* Pods-Facegram.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B6750C371C34384A0023E7C0 = {
 			isa = PBXGroup;
 			children = (
 				B6750C421C34384A0023E7C0 /* Facegram */,
 				B6750C411C34384A0023E7C0 /* Products */,
+				32FF9640E863537E7BE22A4B /* Pods */,
+				2EFC6A273FBDFACD30670EF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,11 +104,11 @@
 				B6750C5F1C34499A0023E7C0 /* Model */,
 				B6750C611C34499A0023E7C0 /* View */,
 				B6750C431C34384A0023E7C0 /* AppDelegate.swift */,
-				B6750C451C34384A0023E7C0 /* ViewController.swift */,
 				B6750C471C34384A0023E7C0 /* Main.storyboard */,
 				B6750C4A1C34384A0023E7C0 /* Assets.xcassets */,
 				B6750C4C1C34384A0023E7C0 /* LaunchScreen.storyboard */,
 				B6750C4F1C34384A0023E7C0 /* Info.plist */,
+				B601D5D21C780B62001E9E7E /* Secrets.plist */,
 			);
 			path = Facegram;
 			sourceTree = "<group>";
@@ -91,6 +121,8 @@
 				B6E4D27A1C48D15B00C03880 /* CenterTabBarController.swift */,
 				B6E4D27C1C48DD3B00C03880 /* CameraController.swift */,
 				B6E4D27E1C495DE600C03880 /* CaptionController.swift */,
+				B601D5D41C780F47001E9E7E /* LoginController.swift */,
+				B601D5D81C78225B001E9E7E /* RegisterController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -100,6 +132,7 @@
 			children = (
 				B61A75161C45A6C2004B2877 /* PostModel.swift */,
 				B61A75181C45A7C2004B2877 /* ProfileModel.swift */,
+				B601D5D61C78197B001E9E7E /* TranslucentTextField.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6750C521C34384A0023E7C0 /* Build configuration list for PBXNativeTarget "Facegram" */;
 			buildPhases = (
+				A43CEA639C84298D136D38B0 /* Check Pods Manifest.lock */,
 				B6750C3C1C34384A0023E7C0 /* Sources */,
 				B6750C3D1C34384A0023E7C0 /* Frameworks */,
 				B6750C3E1C34384A0023E7C0 /* Resources */,
+				C980C171C6DB95D1D4684EE6 /* Embed Pods Frameworks */,
+				7234496DE9FD9DEEB23ECB0F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B601D5D31C780B62001E9E7E /* Secrets.plist in Resources */,
 				B6750C4E1C34384A0023E7C0 /* LaunchScreen.storyboard in Resources */,
 				B6750C4B1C34384A0023E7C0 /* Assets.xcassets in Resources */,
 				B6750C491C34384A0023E7C0 /* Main.storyboard in Resources */,
@@ -178,6 +215,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7234496DE9FD9DEEB23ECB0F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Facegram/Pods-Facegram-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A43CEA639C84298D136D38B0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C980C171C6DB95D1D4684EE6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Facegram/Pods-Facegram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B6750C3C1C34384A0023E7C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -185,14 +270,16 @@
 			files = (
 				B61A75191C45A7C2004B2877 /* ProfileModel.swift in Sources */,
 				B6E4D2791C48B13500C03880 /* FeedController.swift in Sources */,
-				B6750C461C34384A0023E7C0 /* ViewController.swift in Sources */,
 				B6E4D27F1C495DE600C03880 /* CaptionController.swift in Sources */,
+				B601D5D91C78225B001E9E7E /* RegisterController.swift in Sources */,
+				B601D5D71C78197B001E9E7E /* TranslucentTextField.swift in Sources */,
 				B61A75171C45A6C2004B2877 /* PostModel.swift in Sources */,
 				B6750C441C34384A0023E7C0 /* AppDelegate.swift in Sources */,
 				B61A750D1C4583EB004B2877 /* ProfileController.swift in Sources */,
 				B6E4D27D1C48DD3B00C03880 /* CameraController.swift in Sources */,
 				B6E4D27B1C48D15B00C03880 /* CenterTabBarController.swift in Sources */,
 				B66C58E61C49E60400020CF9 /* PostCell.swift in Sources */,
+				B601D5D51C780F47001E9E7E /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +388,7 @@
 		};
 		B6750C531C34384A0023E7C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF696A95B681EFAA01580E4B /* Pods-Facegram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Facegram/Info.plist;
@@ -312,6 +400,7 @@
 		};
 		B6750C541C34384A0023E7C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD87277FA4C6424EA0F2C070 /* Pods-Facegram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Facegram/Info.plist;

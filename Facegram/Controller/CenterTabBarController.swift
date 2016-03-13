@@ -42,6 +42,20 @@ class CenterTabBarController: UITabBarController {
     }
   }
   
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    if (Profile.currentUser == nil) {
+      let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+      let loginController = mainStoryboard.instantiateViewControllerWithIdentifier("Login")
+      presentViewController(loginController, animated: true, completion: nil)
+    }
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    super.prepareForSegue(segue, sender: sender)
+    print("Tab bar segue")
+  }
+  
   func showCamera(sender: UIButton!) {
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     let cameraPicker = mainStoryboard.instantiateViewControllerWithIdentifier("CameraPopup")
