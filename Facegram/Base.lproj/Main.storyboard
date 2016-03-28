@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YQ7-fh-Mf5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YQ7-fh-Mf5">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -57,7 +57,8 @@
                                                 <exclude reference="pbB-Yj-ypw"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="8" y="8" width="82" height="22"/>
                                             <mask key="constraints">
                                                 <include reference="pbB-Yj-ypw"/>
                                             </mask>
@@ -88,7 +89,8 @@
                                                 <exclude reference="06C-gI-K3M"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="8" y="30" width="82" height="16"/>
                                             <mask key="constraints">
                                                 <include reference="06C-gI-K3M"/>
                                             </mask>
@@ -1115,7 +1117,7 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loginTapped:" destination="YQ7-fh-Mf5" eventType="touchUpInside" id="PWN-ty-RKR"/>
@@ -1145,12 +1147,17 @@
                                     <action selector="signupTapped:" destination="YQ7-fh-Mf5" eventType="touchUpInside" id="L3V-Zk-Itm"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="d1U-xk-dI2">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.10383613760862338" green="0.50384603233454817" blue="0.80184200476596856" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="RIo-Vv-TUy" secondAttribute="trailing" id="Bim-aT-R3j"/>
                             <constraint firstItem="2bA-ut-ygS" firstAttribute="top" secondItem="71m-B0-Q5Q" secondAttribute="bottom" constant="46" id="QFE-Tu-OXi"/>
                             <constraint firstItem="gA8-lp-d5m" firstAttribute="height" secondItem="d6W-Kr-spf" secondAttribute="height" id="Rht-je-X2n"/>
+                            <constraint firstItem="d1U-xk-dI2" firstAttribute="centerX" secondItem="OjH-FV-GkA" secondAttribute="centerX" id="Wtx-th-QvH"/>
+                            <constraint firstItem="d1U-xk-dI2" firstAttribute="centerY" secondItem="qOT-PU-OnT" secondAttribute="centerY" id="cdX-iW-Gv4"/>
                             <constraint firstItem="2bA-ut-ygS" firstAttribute="centerX" secondItem="qOT-PU-OnT" secondAttribute="centerX" id="dkk-3r-Rxg"/>
                             <constraint firstItem="gA8-lp-d5m" firstAttribute="trailing" secondItem="d6W-Kr-spf" secondAttribute="trailing" id="ejN-A9-Irn"/>
                             <constraint firstItem="d6W-Kr-spf" firstAttribute="centerX" secondItem="2bA-ut-ygS" secondAttribute="centerX" id="fYD-hy-5u8"/>
@@ -1172,9 +1179,11 @@
                                 <exclude reference="gA8-lp-d5m"/>
                                 <exclude reference="OjH-FV-GkA"/>
                                 <exclude reference="RIo-Vv-TUy"/>
+                                <exclude reference="d1U-xk-dI2"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="lrL-Pj-LBA"/>
+                                <exclude reference="QFE-Tu-OXi"/>
+                                <exclude reference="dkk-3r-Rxg"/>
                                 <exclude reference="fYD-hy-5u8"/>
                                 <exclude reference="jIB-de-ctI"/>
                                 <exclude reference="Rht-je-X2n"/>
@@ -1186,10 +1195,11 @@
                                 <exclude reference="sYQ-Gd-N8W"/>
                                 <exclude reference="sl6-uG-KD6"/>
                                 <exclude reference="umI-sK-X9S"/>
+                                <exclude reference="Wtx-th-QvH"/>
+                                <exclude reference="cdX-iW-Gv4"/>
                                 <exclude reference="Bim-aT-R3j"/>
                                 <exclude reference="hAI-DZ-xCM"/>
-                                <exclude reference="QFE-Tu-OXi"/>
-                                <exclude reference="dkk-3r-Rxg"/>
+                                <exclude reference="lrL-Pj-LBA"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1199,9 +1209,11 @@
                                 <include reference="gA8-lp-d5m"/>
                                 <include reference="OjH-FV-GkA"/>
                                 <include reference="RIo-Vv-TUy"/>
+                                <include reference="d1U-xk-dI2"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="lrL-Pj-LBA"/>
+                                <include reference="QFE-Tu-OXi"/>
+                                <include reference="dkk-3r-Rxg"/>
                                 <include reference="fYD-hy-5u8"/>
                                 <include reference="jIB-de-ctI"/>
                                 <include reference="Rht-je-X2n"/>
@@ -1213,14 +1225,16 @@
                                 <include reference="sYQ-Gd-N8W"/>
                                 <include reference="sl6-uG-KD6"/>
                                 <include reference="umI-sK-X9S"/>
+                                <include reference="Wtx-th-QvH"/>
+                                <include reference="cdX-iW-Gv4"/>
                                 <include reference="Bim-aT-R3j"/>
                                 <include reference="hAI-DZ-xCM"/>
-                                <include reference="QFE-Tu-OXi"/>
-                                <include reference="dkk-3r-Rxg"/>
+                                <include reference="lrL-Pj-LBA"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="d1U-xk-dI2" id="hjD-9Q-LVS"/>
                         <outlet property="loginButton" destination="OjH-FV-GkA" id="FTl-pA-uXo"/>
                         <outlet property="passwordField" destination="gA8-lp-d5m" id="O4Y-AZ-yiI"/>
                         <outlet property="usernameField" destination="d6W-Kr-spf" id="6k7-4v-vUj"/>
@@ -1304,7 +1318,7 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="registerTapped:" destination="XzT-fS-93S" eventType="touchUpInside" id="1p4-a4-dNq"/>

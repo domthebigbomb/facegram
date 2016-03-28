@@ -45,6 +45,10 @@ class Profile {
       profile.posts = [String]()
     }
     
+    if let pictureString = profileDict["picture"] as? String {
+      profile.picture = UIImage.imageWithBase64String(pictureString)
+    }
+    
     return profile
   }
   
@@ -53,6 +57,18 @@ class Profile {
   }
   
   func dictValue() -> Dictionary<String, AnyObject> {
-    return ["username" : username, "followers" : followers, "following": following, "posts": posts]
+    var profileDict = [String: AnyObject]()
+    profileDict["username"] = username
+    profileDict["followers"] = followers
+    profileDict["following"] = following
+    profileDict["posts"] = posts
+    if let profPicture = picture {
+      profileDict["picture"] = profPicture.base64String()
+    }
+    return profileDict
+  }
+  
+  func sync() {
+    profileRef.childByAppendingPath(username).setValue(dictValue())
   }
 }

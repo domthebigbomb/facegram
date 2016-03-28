@@ -12,6 +12,7 @@ class LoginController: UIViewController {
   @IBOutlet weak var usernameField: TranslucentTextField!
   @IBOutlet weak var passwordField: TranslucentTextField!
   @IBOutlet weak var loginButton: UIButton!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,6 +43,7 @@ class LoginController: UIViewController {
       let password = passwordField.text where !password.isEmpty else {
         return
     }
+    activityIndicator.startAnimating()
     login(username, password: password)
   }
   
@@ -56,16 +58,18 @@ class LoginController: UIViewController {
     firebase.authUser(email, password: password, withCompletionBlock: { error, result in
       if error != nil {
         print(error.localizedDescription)
+        self.activityIndicator.stopAnimating()
         return
       }
       let uid = result.uid
       usernameRef.childByAppendingPath(uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
         guard let username = snapshot.value as? String else {
           print("No user found for \(email)")
+          self.activityIndicator.stopAnimating()
           return
         }
-        profileRef.childByAppendingPath(username).observeEventType(.Value, withBlock: { snapshot in
-          print("\(username) + \(snapshot.value)")
+        profileRef.childByAppendingPath(username).observeSingleEventOfType(.Value, withBlock: { snapshot in
+          self.activityIndicator.stopAnimating()
           guard let profile = snapshot.value as? [String : AnyObject] else {
             print("No profile found for user")
             return

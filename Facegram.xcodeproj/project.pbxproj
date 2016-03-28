@@ -15,6 +15,7 @@
 		B61A750D1C4583EB004B2877 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A750C1C4583EB004B2877 /* ProfileController.swift */; };
 		B61A75171C45A6C2004B2877 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A75161C45A6C2004B2877 /* PostModel.swift */; };
 		B61A75191C45A7C2004B2877 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A75181C45A7C2004B2877 /* ProfileModel.swift */; };
+		B622A58A1C9C592E00E87363 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B622A5891C9C592E00E87363 /* Categories.swift */; };
 		B66C58E61C49E60400020CF9 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C58E51C49E60400020CF9 /* PostCell.swift */; };
 		B6750C441C34384A0023E7C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6750C431C34384A0023E7C0 /* AppDelegate.swift */; };
 		B6750C491C34384A0023E7C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6750C471C34384A0023E7C0 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		B61A750C1C4583EB004B2877 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		B61A75161C45A6C2004B2877 /* PostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		B61A75181C45A7C2004B2877 /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		B622A5891C9C592E00E87363 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		B66C58E51C49E60400020CF9 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		B6750C401C34384A0023E7C0 /* Facegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Facegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6750C431C34384A0023E7C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B622A5881C9C58E700E87363 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B622A5891C9C592E00E87363 /* Categories.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		B6750C371C34384A0023E7C0 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 		B6750C421C34384A0023E7C0 /* Facegram */ = {
 			isa = PBXGroup;
 			children = (
+				B622A5881C9C58E700E87363 /* Categories */,
 				B6750C5E1C34499A0023E7C0 /* Controller */,
 				B6750C5F1C34499A0023E7C0 /* Model */,
 				B6750C611C34499A0023E7C0 /* View */,
@@ -280,6 +291,7 @@
 				B6E4D27B1C48D15B00C03880 /* CenterTabBarController.swift in Sources */,
 				B66C58E61C49E60400020CF9 /* PostCell.swift in Sources */,
 				B601D5D51C780F47001E9E7E /* LoginController.swift in Sources */,
+				B622A58A1C9C592E00E87363 /* Categories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,6 @@ class FeedController: UITableViewController {
     super.viewDidLoad()
     tableView.rowHeight = 208
     postRef.observeEventType(.Value, withBlock: { snapshot in
-        //print(snapshot.value)   // Avoid this since images will have a LONG description
       guard let posts = snapshot.value as? [String: [String: String]] else {
         print("No posts found")
         return
@@ -50,7 +49,7 @@ class FeedController: UITableViewController {
   @IBAction func viewUsersProfile(sender: UIButton!) {
     let mainSB = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     let profileVC = mainSB.instantiateViewControllerWithIdentifier("Profile") as! ProfileController
-    profileVC.username = sender.titleForState(.Normal)
+    profileVC.profileUsername = sender.titleForState(.Normal)
     let barButton = UIBarButtonItem()
     barButton.title = "Back"
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()

@@ -8,44 +8,75 @@
 
 import UIKit
 
+enum ActionButtonState: String {
+  case CurrentUser = "Edit Profile"
+  case NotFollowing = "+ Follow"
+  case Following = "✓ Following"
+}
+
 class ProfileController: UIViewController {
   @IBOutlet weak var profilePic:UIImageView!
   @IBOutlet weak var postsLabel:UILabel!
   @IBOutlet weak var followersLabel:UILabel!
   @IBOutlet weak var followingLabel:UILabel!
   @IBOutlet weak var actionButton: UIButton!
-  var username = Profile.currentUser?.username // shows currentUser by default
+  var profileUsername = Profile.currentUser?.username // shows currentUser by default
   var userProfile: Profile?
+  var actionButtonState: ActionButtonState = .CurrentUser {
+    // Perform additional behaviors when a variables value is changed
+    willSet(newState) {
+      switch newState {
+      case .CurrentUser:
+        actionButton.backgroundColor = UIColor.rawColor(red: 228, green: 228, blue: 228, alpha: 1.0)
+        actionButton.layer.borderWidth = 1
+      case .NotFollowing:
+        actionButton.backgroundColor = UIColor.whiteColor()
+        actionButton.layer.borderColor = UIColor.rawColor(red: 18, green: 86, blue: 136, alpha: 1.0).CGColor
+        actionButton.layer.borderWidth = 1
+      case .Following:
+        actionButton.backgroundColor = UIColor.rawColor(red: 111, green: 187, blue: 82, alpha: 1.0)
+        actionButton.layer.borderWidth = 0
+      }
+      actionButton.setTitle(newState.rawValue, forState: .Normal)
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    actionButton.layer.cornerRadius = 3
+    
     // Fetch information about user profile
-    guard let username = username else {
+    guard let username = profileUsername else {
       print("No username for ProfileController")
       return
     }
-    if username != Profile.currentUser?.username {
-      actionButton.backgroundColor = UIColor.whiteColor()
-      actionButton.layer.borderColor = UIColor(red: 18/255.0, green: 86/255.0, blue: 136/255.0, alpha: 1.0).CGColor
-      actionButton.layer.borderWidth = 1
-//      actionButton.layer.cornerRadius = 3
-      actionButton.setTitle("+ Follow", forState: .Normal)
+    
+    self.userProfile = Profile.currentUser
+    
+    if username == Profile.currentUser?.username {
+      self.updateProfile()
     }
     profileRef.childByAppendingPath(username).observeEventType(.Value, withBlock: { snapshot in
-      print("\(username): \(snapshot.value)")
       guard let profile = snapshot.value as? [String: AnyObject] else {
         return
       }
       self.userProfile = Profile.initWithUsername(username, profileDict: profile)
+      if username != Profile.currentUser?.username {
+        if self.userProfile!.followers.contains(Profile.currentUser!.username) {
+          self.actionButtonState = .Following
+        } else {
+          self.actionButtonState = .NotFollowing
+        }
+      }
       self.updateProfile()
       }, withCancelBlock: { error in
-        print("Problem loading \(self.username)'s profile \(error.localizedDescription)")
+        print("Problem loading \(self.profileUsername)'s profile \(error.localizedDescription)")
     })
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    navigationItem.title = username // Shortened to address this vc's navigation item
+    navigationItem.title = profileUsername // Shortened to address this vc's navigation item
   }
   
   func updateProfile() {
@@ -58,18 +89,37 @@ class ProfileController: UIViewController {
   }
   
   @IBAction func editProfile(sender: AnyObject) {
-    let actionSheet = UIAlertController(title: "Edit Profile", message: nil, preferredStyle: .ActionSheet)
-    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-    let photoAction = UIAlertAction(title: "Change Photo", style: .Default, handler: { action in
-      let picker = UIImagePickerController()
-      picker.allowsEditing = true
-      picker.sourceType = .PhotoLibrary
-      picker.delegate = self
-      self.presentViewController(picker, animated: true, completion: nil)
-    })
-    actionSheet.addAction(cancelAction)
-    actionSheet.addAction(photoAction)
-    presentViewController(actionSheet, animated: true, completion: nil)
+    switch actionButtonState {
+    case .CurrentUser:
+      let actionSheet = UIAlertController(title: "Edit Profile", message: nil, preferredStyle: .ActionSheet)
+      let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+      let photoAction = UIAlertAction(title: "Change Photo", style: .Default, handler: { action in
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.sourceType = .PhotoLibrary
+        picker.delegate = self
+        self.presentViewController(picker, animated: true, completion: nil)
+      })
+      actionSheet.addAction(cancelAction)
+      actionSheet.addAction(photoAction)
+      presentViewController(actionSheet, animated: true, completion: nil)
+    case .NotFollowing:
+      actionButtonState = .Following
+      Profile.currentUser?.following.append(userProfile!.username)
+      userProfile?.followers.append(Profile.currentUser!.username)
+      Profile.currentUser?.sync()
+      userProfile?.sync()
+    case .Following:
+      actionButtonState = .NotFollowing
+      if let index = Profile.currentUser?.following.indexOf(profileUsername!) {
+        Profile.currentUser?.following.removeAtIndex(index)
+      }
+      if let index = userProfile?.followers.indexOf((Profile.currentUser?.username)!) {
+        userProfile?.followers.removeAtIndex(index)
+      }
+      userProfile?.sync()
+      Profile.currentUser?.sync()
+    }
   }
 }
 
@@ -77,6 +127,7 @@ extension ProfileController: UIImagePickerControllerDelegate, UINavigationContro
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
     userProfile?.picture = info[UIImagePickerControllerEditedImage] as? UIImage
     profilePic.image = userProfile?.picture
+    userProfile?.sync()
     picker.dismissViewControllerAnimated(true, completion: nil)
   }
 }
