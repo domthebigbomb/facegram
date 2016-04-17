@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.swift
 //  Facegram
 //
@@ -19,10 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
-    let testUser = Profile.createUser("Mark")
-    //Profile.currentUser = testUser
-    Post.feed = [Post]()
     return true
   }
 

@@ -36,12 +36,10 @@ class Post {
     return Post(id: postID, creator: creator, image: postImage, caption: caption)
   }
   
-  func dictValue() -> [String: AnyObject] {
-    let imageData = UIImagePNGRepresentation(image)
-    let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-    var postDict = [String: AnyObject]()
+  func dictValue() -> [String: String] {
+    var postDict = [String: String]()
     postDict["creator"] = creator
-    postDict["image"] = base64String
+    postDict["image"] = image.base64String()
     if let realCaption = caption {
       postDict["caption"] = realCaption
     }

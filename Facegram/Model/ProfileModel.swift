@@ -9,11 +9,11 @@
 import UIKit
 
 class Profile {
-  let username:String
-  var followers:Array<String>
-  var following:Array<String>
+  let username: String
+  var followers: Array<String>
+  var following: Array<String>
   var posts: Array<String> //Array<Post>
-  var picture:UIImage?
+  var picture: UIImage?
   static var currentUser:Profile?
   
   init(username:String, followers:Array<String>, following:Array<String>, posts:Array<String>, picture: UIImage?) {
@@ -29,20 +29,14 @@ class Profile {
 
     if let followers = profileDict["followers"] as? [String] {
       profile.followers = followers
-    } else {
-      profile.followers = [String]()
     }
     
     if let following = profileDict["following"] as? [String] {
       profile.following = following
-    } else {
-      profile.following = [String]()
     }
     
     if let posts = profileDict["posts"] as? [String] {
       profile.posts = posts
-    } else {
-      profile.posts = [String]()
     }
     
     if let pictureString = profileDict["picture"] as? String {

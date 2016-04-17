@@ -20,11 +20,11 @@ class LoginController: UIViewController {
     loginButton.layer.cornerRadius = 5
     loginButton.layer.borderColor = UIColor.lightTextColor().CGColor
     
-    usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor(white: 1.0, alpha: 0.7)])
-    passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor(white: 1.0, alpha: 0.7)])
+    usernameField.placeholderText = "Username"
+    passwordField.placeholderText = "Password"
     
-    usernameField.addTarget(self, action: "textFieldDidChange:", forControlEvents: .EditingChanged)
-    passwordField.addTarget(self, action: "textFieldDidChange:", forControlEvents: .EditingChanged)
+    usernameField.addTarget(self, action: #selector(LoginController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
+    passwordField.addTarget(self, action: #selector(LoginController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
   }
   
   func textFieldDidChange(textfield: UITextField!) {

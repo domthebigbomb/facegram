@@ -18,7 +18,18 @@ class RegisterController: UIViewController {
   @IBOutlet weak var emailField: TranslucentTextField!
   @IBOutlet weak var passwordField: TranslucentTextField!
   @IBOutlet weak var usernameField: TranslucentTextField!
+  @IBOutlet weak var signupButton: UIButton!
   weak var delegate: RegisterControllerDelegate?
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    emailField.placeholderText = "email"
+    passwordField.placeholderText = "password"
+    usernameField.placeholderText = "username"
+    signupButton.layer.borderWidth = 1
+    signupButton.layer.cornerRadius = 5
+    signupButton.layer.borderColor = UIColor.lightTextColor().CGColor
+  }
   
   @IBAction func registerTapped(button: UIButton) {
     guard let email = emailField.text where !email.isEmpty else {

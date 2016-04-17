@@ -13,6 +13,7 @@ class TranslucentTextField: UITextField {
     placeholderText = ""
     super.init(coder: aDecoder)
     tintColor = UIColor.whiteColor()
+    layer.cornerRadius = 3
   }
   
   override func textRectForBounds(bounds: CGRect) -> CGRect {

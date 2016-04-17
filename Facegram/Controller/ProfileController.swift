@@ -20,6 +20,7 @@ class ProfileController: UIViewController {
   @IBOutlet weak var followersLabel:UILabel!
   @IBOutlet weak var followingLabel:UILabel!
   @IBOutlet weak var actionButton: UIButton!
+  @IBOutlet weak var logoutButton: UIBarButtonItem!
   var profileUsername = Profile.currentUser?.username // shows currentUser by default
   var userProfile: Profile?
   var actionButtonState: ActionButtonState = .CurrentUser {
@@ -29,13 +30,16 @@ class ProfileController: UIViewController {
       case .CurrentUser:
         actionButton.backgroundColor = UIColor.rawColor(red: 228, green: 228, blue: 228, alpha: 1.0)
         actionButton.layer.borderWidth = 1
+        actionButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
       case .NotFollowing:
         actionButton.backgroundColor = UIColor.whiteColor()
         actionButton.layer.borderColor = UIColor.rawColor(red: 18, green: 86, blue: 136, alpha: 1.0).CGColor
         actionButton.layer.borderWidth = 1
+        actionButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
       case .Following:
         actionButton.backgroundColor = UIColor.rawColor(red: 111, green: 187, blue: 82, alpha: 1.0)
         actionButton.layer.borderWidth = 0
+        actionButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
       }
       actionButton.setTitle(newState.rawValue, forState: .Normal)
     }
@@ -44,7 +48,8 @@ class ProfileController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     actionButton.layer.cornerRadius = 3
-    
+    profilePic.layer.cornerRadius = 40
+    profilePic.layer.masksToBounds = true
     // Fetch information about user profile
     guard let username = profileUsername else {
       print("No username for ProfileController")
@@ -55,6 +60,9 @@ class ProfileController: UIViewController {
     
     if username == Profile.currentUser?.username {
       self.updateProfile()
+    } else {
+      logoutButton.enabled = false
+      logoutButton.tintColor = UIColor.clearColor()
     }
     profileRef.childByAppendingPath(username).observeEventType(.Value, withBlock: { snapshot in
       guard let profile = snapshot.value as? [String: AnyObject] else {
@@ -120,6 +128,11 @@ class ProfileController: UIViewController {
       userProfile?.sync()
       Profile.currentUser?.sync()
     }
+  }
+  
+  @IBAction func logout(sender: UIBarButtonItem) {
+    postRef.removeAllObservers()
+    tabBarController?.dismissViewControllerAnimated(true, completion: nil)
   }
 }
 
